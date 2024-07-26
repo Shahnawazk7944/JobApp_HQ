@@ -1,0 +1,94 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "9d3a3dc1d112a82f9d9df25d45af94e2",
+    "entities": [
+      {
+        "tableName": "JobApplication",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`companyName` TEXT NOT NULL, `role` TEXT NOT NULL, `location` TEXT NOT NULL, `appliedDate` INTEGER NOT NULL, `status` TEXT NOT NULL, `platform` TEXT NOT NULL, `description1` TEXT NOT NULL, `description2` TEXT NOT NULL, `description3` TEXT NOT NULL, `hrDetails` TEXT NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "companyName",
+            "columnName": "companyName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "role",
+            "columnName": "role",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "location",
+            "columnName": "location",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "appliedDate",
+            "columnName": "appliedDate",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "status",
+            "columnName": "status",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "platform",
+            "columnName": "platform",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "description1",
+            "columnName": "description1",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "description2",
+            "columnName": "description2",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "description3",
+            "columnName": "description3",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "hrDetails",
+            "columnName": "hrDetails",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '9d3a3dc1d112a82f9d9df25d45af94e2')"
+    ]
+  }
+}

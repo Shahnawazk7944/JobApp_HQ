@@ -1,0 +1,229 @@
+package com.example.jobAppHQ.job.presentation.product_screen
+
+import android.annotation.SuppressLint
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.material3.Icon
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.NavigationBarItemDefaults
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.navigation.compose.rememberNavController
+import com.example.jobAppHQ.job.navGraphs.StoreNavGraph
+import com.example.jobAppHQ.job.navGraphs.StoreScreen
+import com.example.jobAppHQ.job.presentation.viewModels.StoreProductDetailsViewModel
+import com.example.jobAppHQ.ui.theme.FPrimaryGreen
+import com.example.jobAppHQ.ui.theme.FSecondaryBackgroundWhite
+import com.example.jobAppHQ.ui.theme.poppins
+import com.example.jobapphq.R
+
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
+@Composable
+fun StoreHomeScreen(
+) {
+    val navController = rememberNavController()
+    val productVM: StoreProductDetailsViewModel = hiltViewModel()
+    val state by productVM.state.collectAsStateWithLifecycle()
+
+    Scaffold(bottomBar = {
+        NavigationBar(
+            containerColor = FSecondaryBackgroundWhite
+        ) {
+            NavigationBarItem(
+                selected = state.route == "home",
+                onClick = {
+                    productVM.changeNavigationState("home")
+                    navController.navigate(StoreScreen.StoreHomeScreenContent.route)
+                },
+                icon = {
+                    Icon(
+
+                        painter = painterResource(R.drawable.home),
+                        contentDescription = null,
+                        modifier = Modifier
+                            .size(30.dp)
+                            .padding(2.dp)
+                            .offset(y = (-4).dp)
+                    )
+                },
+                label = {
+                    Text(
+                        text = "Home",
+                        fontFamily = poppins,
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.Medium,
+
+                        )
+                },
+                colors = NavigationBarItemDefaults.colors(
+                    selectedIconColor = FPrimaryGreen,
+                    unselectedIconColor = Color.Gray,
+                    selectedTextColor = FPrimaryGreen,
+                    unselectedTextColor = Color.Gray,
+                    indicatorColor = FSecondaryBackgroundWhite
+                ),
+            )
+
+            NavigationBarItem(
+                selected = state.route == "favourite",
+                onClick = {
+                    productVM.changeNavigationState("favourite")
+                    navController.navigate(StoreScreen.StoreFavScreen.route)
+                },
+                icon = {
+                    Icon(
+                        painter = painterResource(R.drawable.heart),
+                        contentDescription = null,
+                        modifier = Modifier
+                            .size(30.dp)
+                            .padding(2.dp)
+                            .offset(y = (-4).dp)
+                    )
+                },
+                label = {
+                    Text(
+                        text = "Favourite",
+                        fontFamily = poppins,
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.Medium
+                    )
+                },
+                colors = NavigationBarItemDefaults.colors(
+                    selectedIconColor = FPrimaryGreen,
+                    unselectedIconColor = Color.Gray,
+                    selectedTextColor = FPrimaryGreen,
+                    unselectedTextColor = Color.Gray,
+                    indicatorColor = FSecondaryBackgroundWhite
+                ),
+            )
+
+            NavigationBarItem(
+                selected = state.route == "try",
+                onClick = {
+                    productVM.changeNavigationState("try")
+                    navController.navigate(StoreScreen.StoreTryNow.route)
+                },
+                icon = {
+                    Icon(
+                        painter = painterResource(R.drawable.trynow),
+                        contentDescription = null,
+                        modifier = Modifier
+                            .size(30.dp)
+                            .padding(2.dp)
+                            .offset(y = (-4).dp)
+                    )
+                },
+                label = {
+                    Text(
+                        text = "Try Now",
+                        fontFamily = poppins,
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.Medium,
+
+                        )
+                },
+                colors = NavigationBarItemDefaults.colors(
+                    selectedIconColor = FPrimaryGreen,
+                    unselectedIconColor = Color.Gray,
+                    selectedTextColor = FPrimaryGreen,
+                    unselectedTextColor = Color.Gray,
+                    indicatorColor = FSecondaryBackgroundWhite
+                ),
+            )
+
+            NavigationBarItem(
+
+                selected = state.route == "cart",
+
+                onClick = {
+                    productVM.changeNavigationState("cart")
+                    navController.navigate(StoreScreen.StoreProductCart.route)
+                },
+                icon = {
+                    Icon(
+                        painter = painterResource(R.drawable.cart),
+                        contentDescription = null,
+                        modifier = Modifier
+                            .size(30.dp)
+                            .padding(2.dp)
+                            .offset(y = (-4).dp)
+                    )
+                },
+                label = {
+                    Text(
+                        text = "Shopping",
+                        fontFamily = poppins,
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.Medium,
+
+                        )
+                },
+                colors = NavigationBarItemDefaults.colors(
+                    selectedIconColor = FPrimaryGreen,
+                    unselectedIconColor = Color.Gray,
+                    selectedTextColor = FPrimaryGreen,
+                    unselectedTextColor = Color.Gray,
+                    indicatorColor = FSecondaryBackgroundWhite
+                ),
+            )
+
+            NavigationBarItem(
+                selected = state.route == "profile",
+                onClick = {
+                    productVM.changeNavigationState("profile")
+                    navController.navigate(StoreScreen.StoreProfileScreen.route)
+                },
+                icon = {
+                    Icon(
+                        painter = painterResource(R.drawable.user2),
+                        contentDescription = null,
+                        modifier = Modifier
+                            .size(30.dp)
+                            .padding(2.dp)
+                            .offset(y = (-4).dp)
+                    )
+                },
+                label = {
+                    Text(
+                        text = "Profile",
+                        fontFamily = poppins,
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.Medium,
+
+                        )
+                },
+                colors = NavigationBarItemDefaults.colors(
+                    selectedIconColor = FPrimaryGreen,
+                    unselectedIconColor = Color.Gray,
+                    selectedTextColor = FPrimaryGreen,
+                    unselectedTextColor = Color.Gray,
+                    indicatorColor = FSecondaryBackgroundWhite
+                ),
+            )
+
+        }
+
+    }) {
+        Box(
+
+        ) {
+            StoreNavGraph(
+                navController = navController, viewModel = productVM
+            )
+        }
+    }
+}
